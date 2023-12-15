@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/select2.min.css">
+  <link rel="stylesheet" href="./css/tui-date-picker.css">
+  <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" />
+  <link rel="stylesheet" href="./css/style.css">    
+  
+  <title>펀넬관리시스템</title>    
+</head>
+<body>
+  <div class="sub_box">
+    <div class="content_box center_box wide" style="padding:0 0 20px !important;">  
+      <div class="page_title_wrap">          
+	      <div class="page_title">
+	        <div class="d-flex align-items-center">
+	          <span class="page_name">업무보고</span>
+	        </div>
+	        <div class="d-flex align-items-center">  
+            <div class="select_dept_wrap mr-10px">
+	        		<label class="label m-0 mr-5px">본부</label>
+	            <select class="fms_select" name="dept">	            	     
+                <option>선택하세요</option>
+                <option value="">a</option>
+                <option value="">b</option>	                  
+	            </select>
+	        	</div>  
+            <div class="ml-10px"></div>
+            <label class="d-inline-block m-0">회의일자</label>
+            <div class="position-relative ml-5px">
+              <input type="text" class="week_report_date" id="datepicker_input_meeting" autocomplete="off" readonly>                              
+              <div id="wrapper_meeting"></div>
+            </div>            
+	          <button class="btn_save mr-5px ml-5px">작성</button>
+	        </div>
+	      </div>
+	     </div>
+      <div class="mt-10px"></div>
+      
+        <div class="empty_card">   
+            <div class="noresult">
+              <span class="material-symbols-outlined icon">fmd_bad</span>
+              <div class="txt">처음 업무보고 화면에 접근하셨습니다.</div>
+              <div class="txt">회의일자를 선택하고 업무보고 문서를 작성해주세요.</div>
+            </div>
+        </div>
+      
+    </div>
+  </div>
+  <script src="./js/jquery-3.0.0.min.js"></script>
+  <script src="./js/jquery-ui.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/select2.min.js"></script>
+  <script src="./js/tui-date-picker.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script>
+    var pWindow;
+    var loading_spinner;
+    var datepicker_meeting;	
+
+    $(function(){
+        initData();
+        datepicker_meeting = new tui.DatePicker('#wrapper_meeting', { //회의일자
+  	        date: new Date(),
+  	        input: {
+  	            element: '#datepicker_input_meeting',
+  	            format: 'yyyy-MM-dd'
+  	        },
+  	        language: 'ko'
+  	    });
+        $('.fms_select').select2({ //담당본부
+	          width: '185',
+	          minimumResultsForSearch: Infinity
+	      });       
+        $('.fms_select.status').select2({ //상태
+	          width: '100',
+	          minimumResultsForSearch: Infinity
+	      });     
+        initEventListener();  // 바뀔 부분
+        loading_spinner.hide(); // 바뀔 부분
+    });
+    function initData(){
+        pWindow = parent;
+        loading_spinner = pWindow.loading_spinner ?  pWindow.loading_spinner : $(pWindow).find('.loading_spinner');
+        
+    }
+    function initEventListener(){
+      $('.week_report_card_title').on('click', function(event){  // 카드 토글
+        if($(event.currentTarget).next().css('display') === 'block'){
+          $(event.currentTarget).find('.week_report_card_title_icon').text('expand_less');
+        }else{
+          $(event.currentTarget).find('.week_report_card_title_icon').text('expand_more');
+        }
+        //$(event.currentTarget).next().slideToggle();
+        $(event.currentTarget).next().toggle();
+      });
+
+      $('.btn_save').on('click', function(){
+        //$("#confirm_modal .txt", pWindow.document).html('전사 총원가 목표가 정상적으로 저장되었습니다.');
+        $("#confirm_modal .txt", pWindow.document).html('전사 총원가 목표 저장에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.');
+        $("#confirm_modal", pWindow.document).modal('show');
+      });
+
+      
+    }
+    window.addEventListener("scroll", function() {
+		  var scrollHeight = window.scrollY;  		  
+		  if(scrollHeight > 10){
+			  $('.page_title').addClass('shadow');
+		  }else{
+			  $('.page_title').removeClass('shadow');
+		  }
+	  });
+    function refreshPage(){
+    	console.log("본부별담당자 새로고침");
+    }
+
+
+
+    var toolbarOptions = [
+        "bold", "italic", "underline", "strike", { color: [] }, { align: [] },
+        { list: "ordered" }, { list: "bullet" },
+        "clean"
+    ];
+
+    
+    
+  </script>
+</body>
+</html>

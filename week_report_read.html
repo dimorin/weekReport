@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/select2.min.css">
+  <link rel="stylesheet" href="./css/tui-date-picker.css">
+  <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="./css/style.css">    
+  <title>펀넬관리시스템</title> 
+</head>
+<body>
+  <div class="sub_box">
+    <div class="content_box center_box wide" style="padding:0 0 20px !important;">  
+      <div class="page_title_wrap">          
+	      <div class="page_title">
+	        <div class="d-flex align-items-center">
+	          <span class="page_name">업무보고</span>
+	        </div>
+	        <div class="d-flex align-items-center">  
+            
+            
+            <div class="select_dept_wrap mr-10px">
+	        		<label class="label m-0 mr-5px">본부</label>
+	            <select class="fms_select" name="dept">	            	     
+                <option>선택하세요</option>
+                <option value="">a</option>
+                <option value="">b</option>	                  
+	            </select>
+	        	</div>  
+            <div class="ml-10px"></div>
+            <label class="d-inline-block m-0">회의일자</label>
+            <div class="position-relative ml-5px">
+              <input type="text" id="datepicker_meeting_date" autocomplete="off" readonly>
+              <div id="wrapper_datepicker_meeting_date"></div>
+            </div>
+            <!-- <div class="position-relative ml-5px">
+              <input type="text" class="week_report_date" id="datepicker_input_meeting" autocomplete="off" readonly>                              
+              <div id="wrapper_meeting"></div>
+            </div> -->            
+	          <button class="btn_save mr-5px ml-5px">작성</button>
+	        </div>
+	      </div>
+	     </div>
+      <div class="mt-10px"></div>
+      <div class="week_report_card">
+        <div class="week_report_card_title">
+          <span>목표 대비 실적 현황</span>
+          <span class="material-symbols-outlined week_report_card_title_icon">expand_more</span>
+        </div>              
+        <div class="week_report_card_body">          
+          <table class="table_week_report">
+            <colgroup>
+              <col width="140">
+              <col width="60">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>항목</th>
+                <th>합계</th>
+                <th>1월</th>
+                <th>2월</th>
+                <th>3월</th>
+                <th>4월</th>
+                <th>5월</th>
+                <th>6월</th>
+                <th>7월</th>
+                <th>8월</th>
+                <th>9월</th>
+                <th>10월</th>
+                <th>11월</th>
+                <th>12월</th>
+              </tr>
+            </thead>
+          </table>
+          <div class="mt-10px"></div>
+          <table class="table_week_report">
+            <colgroup>
+              <col width="140">
+              <col width="60">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+            </colgroup>       
+            <tbody>
+              <tr>
+                <th rowspan="4" class="contract">
+                  <div class="title_wrap">
+                    <div class="title">수주</div>
+                  <div class="forward">                    
+                    <input type="text" class="table_week_report_input text-center" name="forward" id="" data-type="contract" value="16,456,456" readonly>
+                    <label>실적 전기이월</label>
+                  </div>
+                  </div>                  
+                </th>
+                <th>목표</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="total" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="4" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="5" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="9" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="10" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="11" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="contract" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>
+                <th>계획</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="total" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="4" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="5" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="9" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="10" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="11" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="contract" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>                
+                <th>실적</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="total" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="1" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="2" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="3" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="4" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="5" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="6" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="7" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="8" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="9" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="10" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="11" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="contract" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>                
+                <th>GAP</th>
+                <td class="total"><input type="text" class="goal_input text-right minus" name="gap" id="" data-type="contract" data-month="total" value="(6,594,259)" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="4" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="5" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="9" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="10" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="11" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="contract" data-month="12" value="0" readonly></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-10px"></div>
+          <table class="table_week_report">
+            <colgroup>
+              <col width="140">
+              <col width="60">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+            </colgroup>       
+            <tbody>
+              <tr>
+                <th rowspan="4">매출</th>
+                <th>목표</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="total" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="4" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="5" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="9" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="10" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="11" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="sales" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>
+                <th>계획</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="total" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="4" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="5" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="9" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="10" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="11" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="sales" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>                
+                <th>실적</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="total" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="1" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="2" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="3" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="4" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="5" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="6" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="7" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="8" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="9" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="10" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="11" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="sales" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>                
+                <th>GAP</th>
+                <td class="total"><input type="text" class="goal_input text-right minus" name="gap" id="" data-type="sales" data-month="total" value="(6,594,259)" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="4" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="5" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="9" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="10" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="11" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="sales" data-month="12" value="0" readonly></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-10px"></div>
+          <table class="table_week_report">
+            <colgroup>
+              <col width="140">
+              <col width="60">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+            </colgroup>       
+            <tbody>
+              <tr>
+                <th rowspan="4">마진</th>
+                <th>목표</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="total" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="4" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="5" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="9" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="10" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="11" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="goal" id="" data-type="margin" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>
+                <th>계획</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="total" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="4" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="5" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="9" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="10" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="11" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="plan" id="" data-type="margin" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>                
+                <th>실적</th>
+                <td class="total"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="total" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="1" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="2" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="3" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="4" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="5" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="6" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="7" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="8" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="9" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="10" value="0" readonly></td>
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="11" value="0" readonly></td>                      
+                <td class="real"><input type="text" class="table_week_report_input text-right" name="real" id="" data-type="margin" data-month="12" value="0" readonly></td>
+              </tr>
+              <tr>                
+                <th>GAP</th>
+                <td class="total"><input type="text" class="goal_input text-right minus" name="gap" id="" data-type="margin" data-month="total" value="(6,594,259)" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="1" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="2" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="3" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="4" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="5" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="6" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="7" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="8" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="9" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="10" value="0" readonly></td>
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="11" value="0" readonly></td>                      
+                <td><input type="text" class="table_week_report_input text-right" name="gap" id="" data-type="margin" data-month="12" value="0" readonly></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mt-10px"></div>
+      <div class="week_report_card">
+        <div class="week_report_card_title">
+          <span>핵심추진 과제 수행 현황</span>
+          <span class="material-symbols-outlined week_report_card_title_icon">expand_more</span>
+        </div>              
+        <div class="week_report_card_body core_subject">                    
+          <section class="section type">
+            <div class="section_title">
+              <span class="label mr-5px">구분</span>
+              <div class="input" contenteditable="false">당기과제</div>
+            </div>
+            <section class="section dept">
+              <button class="section_title">
+                <span class="label mr-5px">본부목표</span>
+                <div class="input" contenteditable="false">매출 130억 달성</div>
+                <span class="material-symbols-outlined arrow_icon">expand_more</span>
+              </button>
+              <div class="section_dept_body">
+                <section class="section subject">
+                  <div class="section_title">
+                    <span class="label mr-5px">전략과제</span>
+                    <div class="input" contenteditable="false">기존 고객사 지속 사업 수정</div>
+                    <span class="status_badge normal ml-10px">양호</span>
+                  </div>                
+                  <table class="table_action">
+                    <colgroup>
+                      <col width="750">
+                      <col width="110">
+                      <col width="110">
+                      <col width="750">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>실행계획</th>
+                        <th>종료예정일</th>
+                        <th>진행률</th>
+                        <th>Action/Issue</th>
+                      </tr>
+                    </thead>
+                    <tbody class="action">
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+                <section class="section subject">
+                  <div class="section_title">
+                    <span class="label mr-5px">전략과제</span>
+                    <div class="input" contenteditable="false">기존 고객사 지속 사업 수정</div>
+                    <span class="status_badge normal ml-10px">양호</span>
+                  </div>                
+                  <table class="table_action">
+                    <colgroup>
+                      <col width="750">
+                      <col width="110">
+                      <col width="110">
+                      <col width="750">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>실행계획</th>
+                        <th>종료예정일</th>
+                        <th>진행률</th>
+                        <th>Action/Issue</th>
+                      </tr>
+                    </thead>
+                    <tbody class="action">
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+            </section>
+            <section class="section dept">
+              <button class="section_title">
+                <span class="label mr-5px">본부목표</span>
+                <div class="input" contenteditable="false">매출 130억 달성</div>
+                <span class="material-symbols-outlined arrow_icon">expand_more</span>
+              </button>
+              <div class="section_dept_body">
+                <section class="section subject">
+                  <div class="section_title">
+                    <span class="label mr-5px">전략과제</span>
+                    <div class="input" contenteditable="false">기존 고객사 지속 사업 수정</div>
+                    <span class="status_badge warn ml-10px">경고</span>
+                  </div>                
+                  <table class="table_action">
+                    <colgroup>
+                      <col width="750">
+                      <col width="110">
+                      <col width="110">
+                      <col width="750">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>실행계획</th>
+                        <th>종료예정일</th>
+                        <th>진행률</th>
+                        <th>Action/Issue</th>
+                      </tr>
+                    </thead>
+                    <tbody class="action">
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+                <section class="section subject">
+                  <div class="section_title">
+                    <span class="label mr-5px">전략과제</span>
+                    <div class="input" contenteditable="false">기존 고객사 지속 사업 수정</div>
+                    <span class="status_badge danger ml-10px">위험</span>
+                    
+                  </div>                
+                  <table class="table_action">
+                    <colgroup>
+                      <col width="750">
+                      <col width="110">
+                      <col width="110">
+                      <col width="750">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>실행계획</th>
+                        <th>종료예정일</th>
+                        <th>진행률</th>
+                        <th>Action/Issue</th>
+                      </tr>
+                    </thead>
+                    <tbody class="action">
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                      <tr class="section action">
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            
+                            <div class="input" contenteditable="false">기존 고객사 정기적 미팅</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">2024-10-12</div>
+                          </div>                        
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input text-center" contenteditable="false">50 %</div>
+                          </div>
+                        </td>
+                        <td class="table_action_td">
+                          <div class="input_wrap">
+                            <div class="input" contenteditable="false">주 중 2회 미팅</div>
+                          </div>                        
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+            </section>
+          </section> 
+        </div>
+      </div>
+      <div class="mt-10px"></div>
+      <div class="week_report_card">
+        <div class="week_report_card_title">
+          <span>기타 이슈 / 지원 / 협업 사항</span>
+          <span class="material-symbols-outlined week_report_card_title_icon">expand_more</span>
+        </div>              
+        <div class="week_report_card_body etc">   
+          <div id="editor-container" class="empty">
+            <div class="noresult">
+              <span class="material-symbols-outlined icon">fmd_bad</span>
+              <div class="txt">작성된 내용이 없습니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-3.0.0.min.js"></script>
+  <script src="./js/jquery-ui.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/select2.min.js"></script>
+  <script src="./js/tui-date-picker.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    var pWindow;
+    var loading_spinner;
+    //var datepicker_meeting;	
+
+    $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년',
+    });
+    $(function(){
+        initData();
+        
+        var report_date = [new Date("2023-12-4"), new Date("2023-12-11"), new Date("2023-12-18")];
+        $("#datepicker_meeting_date").datepicker(
+          {
+            beforeShow:function(){
+              setTimeout(function(){
+                var target = $('#ui-datepicker-div');
+                target.css('visibility','visible');
+                $('#wrapper_datepicker_meeting_date').append(target); 
+              }, 100);
+              
+            },
+            beforeShowDay: function (date) {            
+              var find_index = report_date.findIndex(function(item){
+                return (date.getFullYear() === item.getFullYear() && date.getMonth() === item.getMonth() && date.getDate() === item.getDate()) 
+              });    
+              if(find_index > -1){
+                return [true, "report_date", ""];
+              }else{
+                return [true, "", ""];
+              }
+            },            
+          },
+          "widget"
+        );
+        
+        /* datepicker_meeting = new tui.DatePicker('#wrapper_meeting', { //회의일자
+  	        date: new Date(),
+  	        input: {
+  	            element: '#datepicker_input_meeting',
+  	            format: 'yyyy-MM-dd'
+  	        },
+  	        language: 'ko'
+  	    }); */
+
+        $('.fms_select').select2({ //담당본부
+	          width: '185',
+	          minimumResultsForSearch: Infinity
+	      });       
+        $('.fms_select.status').select2({ //상태
+	          width: '100',
+	          minimumResultsForSearch: Infinity
+	      });     
+        initEventListener();  // 바뀔 부분
+        loading_spinner.hide(); // 바뀔 부분
+    });
+    function initData(){
+        pWindow = parent;
+        loading_spinner = pWindow.loading_spinner ?  pWindow.loading_spinner : $(pWindow).find('.loading_spinner');
+        
+    }
+    function initEventListener(){
+      $('.week_report_card_title').on('click', function(event){  // 카드 토글
+        if($(event.currentTarget).next().css('display') === 'block'){
+          $(event.currentTarget).find('.week_report_card_title_icon').text('expand_less');
+        }else{
+          $(event.currentTarget).find('.week_report_card_title_icon').text('expand_more');
+        }
+        //$(event.currentTarget).next().slideToggle();
+        $(event.currentTarget).next().toggle();
+      });
+
+      $('.section.dept .section_title').on('click', function(event){
+        if($(event.currentTarget).next().css('display') === 'block'){
+          $(event.currentTarget).find('.arrow_icon').text('expand_less');
+        }else{
+          $(event.currentTarget).find('.arrow_icon').text('expand_more');
+        }        
+        $(event.currentTarget).next().toggle();
+      });
+
+      $('.btn_save').on('click', function(){
+        //$("#confirm_modal .txt", pWindow.document).html('전사 총원가 목표가 정상적으로 저장되었습니다.');
+        $("#confirm_modal .txt", pWindow.document).html('전사 총원가 목표 저장에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.');
+        $("#confirm_modal", pWindow.document).modal('show');
+      });
+
+      
+    }
+    window.addEventListener("scroll", function() {
+		  var scrollHeight = window.scrollY;  		  
+		  if(scrollHeight > 10){
+			  $('.page_title').addClass('shadow');
+		  }else{
+			  $('.page_title').removeClass('shadow');
+		  }
+	  });
+    function refreshPage(){
+    	console.log("본부별담당자 새로고침");
+    }
+
+
+
+    var toolbarOptions = [
+        "bold", "italic", "underline", "strike", { color: [] }, { align: [] },
+        { list: "ordered" }, { list: "bullet" },
+        "clean"
+    ];
+
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/select2.min.css">
+    <link rel="stylesheet" href="./css/tui-date-picker.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>펀넬관리시스템</title>     
+</head>
+<body>
+    <header>
+        <div class="left_wrap">
+            <button class="btn_logo">
+              <span class="company">AirQuay</span>
+              <span class="brand ml-10px">펀넬 관리 시스템</span>          
+            </button>            
+        </div>
+        <button class="btn_menu" type="button">
+            <span class="material-symbols-outlined icon">menu</span>
+        </button>          
+        <ul class="menu_list">            
+            <li data-menu="project" class="active">
+                <button class="btn_link" onclick="javascript:goPage('project', './project_board.html')">프로젝트 현황</button>
+            </li>
+            <li data-menu="report">
+                <button class="btn_link" onclick="javascript:goPage('report', './report1.html')">보고서</button>
+            </li>
+            <li data-menu="task">
+                <button class="btn_link" onclick="javascript:goPage('task', './week_report_read.html', 'task1')">업무보고</button>
+                <!-- <ul class="sub_menu_list">
+                    <li data-menu="task1">
+                        <button class="btn_link" onclick="javascript:goPage('task', '/work_read.html', 'task1')">주간업무 리스트</button>
+                    </li>
+                    <li data-menu="task2">
+                        <button class="btn_link" onclick="javascript:goPage('task', '/task2.html', 'task2')">주간업무 작성</button>
+                    </li>
+                </ul> -->
+            </li>
+            <li data-menu="admin">
+                <button class="btn_link" onclick="javascript:goPage('admin', '/input1.html', 'input1')">설정관리</button>
+                <ul class="sub_menu_list">
+                    <li data-menu="input1">
+                        <button class="btn_link" onclick="javascript:goPage('admin', '/input1.html', 'input1')">전사 연간 목표 입력</button>
+                    </li>
+                    <li data-menu="input2">
+                        <button class="btn_link" onclick="javascript:goPage('admin', '/input2.html', 'input2')">본부별 담당자 목표 입력</button>
+                    </li>
+                    <li data-menu="input3">
+                        <button class="btn_link" onclick="javascript:goPage('admin', '/input3.html', 'input3')">전사 총원가 목표&실적 입력</button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="right_wrap">
+            <div class="user_wrap">
+                <span class="team">전략고객영업팀</span>
+                <span class="user">홍길동</span>
+            </div>
+            <button class="btn_logout ml-10px" title="로그아웃" onclick="javascript:location.href='./login.html'"><span class="material-symbols-outlined">logout</span></button>
+        </div>
+    </header>
+    <main>
+        <iframe src="./week_report_read_empty.html" id="ContentFrame"></iframe>
+    </main>   
+    <footer>
+        <div class="center_box h-100 d-flex align-items-center">© Copyright 2023. AirQuay All Rights Reserved.</div>
+      </footer>
+    <div class="memo_wrap">
+        <div class="memo_wrap_header">
+            <div class="d-flex align-items-center">
+                <span>메모</span>
+                <span class="memo_count">10</span>
+            </div>
+            <div class="project_name">2023_삼성서울병원_2023_1차_프로젝트_유지보수_RTLS_라이선스_선지급분은_제외_RTLS</div>
+            <button class="btn_close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="memo_wrap_body">
+            <ul class="memo_list fms_scrollbar">
+                <li class="mode_read">
+                    <div class="memo_header">
+                        <div class="memo_header_info">
+                            <span class="user_name">홍길동</span>
+                            <span class="date">2023-08-23</span>
+                        </div>
+                        <div class="memo_header_btn">
+                            <button class="btn_memo" data-type="modify">수정</button>
+                            <button class="btn_memo" data-type="delete">삭제</button>
+                            <button class="btn_memo" data-type="save">저장</button>
+                            <button class="btn_memo" data-type="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="memo_body">
+                        <div class="memo_div">가계약 이후 담당자 변경될 예정</div>
+                        <textarea name="" id="" class="memo_textarea">가계약 이후 담당자 변경될 예정</textarea>
+                    </div>
+                </li>                
+                <li class="mode_read">
+                    <div class="memo_header">
+                        <div class="memo_header_info">
+                            <span class="user_name">홍길동</span>
+                            <span class="date">2023-08-23</span>
+                        </div>
+                        <div class="memo_header_btn">
+                            <button class="btn_memo" data-type="modify">수정</button>
+                            <button class="btn_memo" data-type="delete">삭제</button>
+                            <button class="btn_memo" data-type="save">저장</button>
+                            <button class="btn_memo" data-type="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="memo_body">
+                        <div class="memo_div">가계약 이후 담당자 변경될 예정</div>
+                        <textarea name="" id="" class="memo_textarea">가계약 이후 담당자 변경될 예정</textarea>
+                    </div>
+                </li>
+                <li class="mode_read">
+                    <div class="memo_header">
+                        <div class="memo_header_info">
+                            <span class="user_name">홍길동</span>
+                            <span class="date">2023-08-23</span>
+                        </div>
+                        <div class="memo_header_btn">
+                            <button class="btn_memo" data-type="modify">수정</button>
+                            <button class="btn_memo" data-type="delete">삭제</button>
+                            <button class="btn_memo" data-type="save">저장</button>
+                            <button class="btn_memo" data-type="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="memo_body">
+                        <div class="memo_div">가계약 이후 담당자 변경될 예정</div>
+                        <textarea name="" id="" class="memo_textarea">가계약 이후 담당자 변경될 예정</textarea>
+                    </div>
+                </li>
+                <li class="mode_read">
+                    <div class="memo_header">
+                        <div class="memo_header_info">
+                            <span class="user_name">홍길동</span>
+                            <span class="date">2023-08-23</span>
+                        </div>
+                        <div class="memo_header_btn">
+                            <button class="btn_memo" data-type="modify">수정</button>
+                            <button class="btn_memo" data-type="delete">삭제</button>
+                            <button class="btn_memo" data-type="save">저장</button>
+                            <button class="btn_memo" data-type="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="memo_body">
+                        <div class="memo_div">가계약 이후 담당자 변경될 예정</div>
+                        <textarea name="" id="" class="memo_textarea">가계약 이후 담당자 변경될 예정</textarea>
+                    </div>
+                </li>
+                <li class="mode_read">
+                    <div class="memo_header">
+                        <div class="memo_header_info">
+                            <span class="user_name">홍길동</span>
+                            <span class="date">2023-08-23</span>
+                        </div>
+                        <div class="memo_header_btn">
+                            <button class="btn_memo" data-type="modify">수정</button>
+                            <button class="btn_memo" data-type="delete">삭제</button>
+                            <button class="btn_memo" data-type="save">저장</button>
+                            <button class="btn_memo" data-type="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="memo_body">
+                        <div class="memo_div">가계약 이후 담당자 변경될 예정</div>
+                        <textarea name="" id="" class="memo_textarea">가계약 이후 담당자 변경될 예정</textarea>
+                    </div>
+                </li>
+                <li class="mode_read">
+                    <div class="memo_header">
+                        <div class="memo_header_info">
+                            <span class="user_name">홍길동</span>
+                            <span class="date">2023-08-23</span>
+                        </div>
+                        <div class="memo_header_btn">
+                            <button class="btn_memo" data-type="modify">수정</button>
+                            <button class="btn_memo" data-type="delete">삭제</button>
+                            <button class="btn_memo" data-type="save">저장</button>
+                            <button class="btn_memo" data-type="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="memo_body">
+                        <div class="memo_div">가계약 이후 담당자 변경될 예정</div>
+                        <textarea name="" id="" class="memo_textarea">가계약 이후 담당자 변경될 예정</textarea>
+                    </div>
+                </li>
+                <li class="mode_read">
+                    <div class="memo_header">
+                        <div class="memo_header_info">
+                            <span class="user_name">홍길동</span>
+                            <span class="date">2023-08-23</span>
+                        </div>
+                        <div class="memo_header_btn">
+                            <button class="btn_memo" data-type="modify">수정</button>
+                            <button class="btn_memo" data-type="delete">삭제</button>
+                            <button class="btn_memo" data-type="save">저장</button>
+                            <button class="btn_memo" data-type="cancel">취소</button>
+                        </div>
+                    </div>
+                    <div class="memo_body">
+                        <div class="memo_div">가계약 이후 담당자 변경될 예정</div>
+                        <textarea name="" id="" class="memo_textarea">가계약 이후 담당자 변경될 예정</textarea>
+                    </div>
+                </li>
+            </ul>
+            <div class="memo_write_wrap">
+                <textarea name="" id="" class="memo_textarea" placeholder="메모 내용을 작성하세요."></textarea>
+                <button class="btn_save">저장</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade fmsModal" id="confirm_modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                </div>
+                <div class="modal-body">
+                    <div class="txt text-center"></div>
+                </div>   
+                <div class="modal-footer">                        
+                    <button type="button" class="btn_normal" data-dismiss="modal">확인</button>
+                </div>         
+            </div>
+        </div>
+    </div>
+    <div class="modal fade fmsModal" id="delete_modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">삭제</h5>            
+            </div>
+            <div class="modal-body">
+                <div class="txt text-center">해당 리스트를 삭제하시겠습니까?</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn_normal fill btn_delete">삭제</button>
+                <button type="button" class="btn_normal ml-2" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- loading -->
+    <div class="loading_spinner">
+        <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <script src="./js/jquery-3.0.0.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/select2.min.js"></script>
+    <script src="./js/tui-date-picker.js"></script>
+    <script src="./js/common.js"></script> 
+    <script>
+        var loading_spinner;
+        var memo_wrap;
+        var currMenu = 'project';
+        var delete_callback;
+        $(function(){
+            initData();
+            init_eventListener();
+        });
+        function initData(){
+            loading_spinner = $('.loading_spinner');
+            memo_wrap = $('.memo_wrap');
+        }
+        function init_eventListener(){
+            $('header .btn_menu').on('click', function(event){
+                $('header .menu_list').toggleClass('show');
+            });
+            $('.memo_wrap .btn_close').on('click',function(){
+                showMemo(false);
+            });
+            $('.memo_wrap').on('click',function(event){
+                if(event.target.className === 'btn_save'){
+                    //$('#confirm_modal .txt').html('메모가 정상적으로 저장되었습니다.');
+                    $('#confirm_modal .txt').html('메모 저장에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.');
+                    $('#confirm_modal').modal('show');
+                }
+                if($(event.target).data('type') === 'modify'){                    
+                    var li = $(event.target).parents('li');
+                    $(li[0]).removeClass('mode_read');
+                    $(li[0]).addClass('mode_edit');
+                }else if($(event.target).data('type') === 'delete'){
+                    $('#delete_modal .txt').html('해당 메모를 삭제하시겠습니까?');
+                    $('#delete_modal').modal('show');
+                }else if($(event.target).data('type') === 'save'){    
+                    //$('#confirm_modal .txt').html('메모가 정상적으로 수정되었습니다.');
+                    $('#confirm_modal .txt').html('메모 수정에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.');
+                    $('#confirm_modal').modal('show');
+                }else if($(event.target).data('type') === 'cancel'){
+                    var li = $(event.target).parents('li');
+                    $(li[0]).removeClass('mode_edit');
+                    $(li[0]).addClass('mode_read');
+                }
+            });
+            $('#delete_modal .btn_delete').on('click', function(){
+                if(delete_callback){
+                    delete_callback();
+                }
+                $('#delete_modal').modal('hide');
+                //$('#confirm_modal .txt').html('해당 메모가 정상적으로 삭제되었습니다.');
+                $('#confirm_modal .txt').html('메모 삭제에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.');
+                $('#confirm_modal').modal('show');
+            });
+            $('.memo_wrap').draggable({
+                handle: ".memo_wrap_header",
+                containment: "parent"
+            }); 
+        }
+        function goPage(menu, url, sub_menu){        
+            //$(element).parent().siblings().removeClass('active');
+            //$(element).parent().addClass('active');   
+            $('.menu_list > li').removeClass('active');
+            $('.menu_list > li[data-menu='+menu+']').addClass('active');
+            $('.menu_list > li .sub_menu_list > li').removeClass('active');
+            
+            var targetMenu = menu;
+
+            if(sub_menu){                
+                $('.menu_list > li[data-menu='+menu+'] .sub_menu_list > li[data-menu='+sub_menu+']').addClass('active');
+                targetMenu = sub_menu;
+            }
+
+            if(currMenu == targetMenu){
+                
+            }else{                
+                $('#ContentFrame').attr('src', url);
+            }
+            
+            currMenu = targetMenu;
+        }
+ 
+        function showMemo(state){
+            if(state){
+                memo_wrap.slideDown();
+            }else{
+                memo_wrap.slideUp();
+            }            
+        }
+        
+    </script>
+</body>
+</html>
